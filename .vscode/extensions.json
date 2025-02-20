@@ -1,0 +1,32 @@
+{
+  "recommendations": [
+    "formulahendry.auto-rename-tag",
+    "CoenraadS.bracket-pair-colorizer-2",
+    "streetsidesoftware.code-spell-checker",
+    "oderwat.indent-rainbow",
+    "visualstudioexptteam.vscodeintellicode",
+    "xabikos.javascriptsnippets",
+    "phoenametre.fontawesome",
+    "formulahendry.highlight-matching-tag",
+    "bierner.image-preview",
+    "oderwat.indent-rainbow",
+    "zignd.html-css-class-completion",
+    "oderwat.indent-rainbow",
+    "eriklynd.json-tools",
+    "ritwickdey.liveserver",
+    "shd101wyy.markdown-preview-enhanced",
+    "yzane.markdown-pdf",
+    "christian-kohler.npm-intellisense",
+    "rangav.vscode-postman",
+    "esbenp.prettier-vscode",
+    "prisma.prisma",
+    "mrmlnc.vscode-scss",
+    "bradlc.vscode-tailwindcss",
+    "ecmel.vscode-html-css",
+    "tailwinddocs.tailwindcss",
+    "heybourn.headwind",
+    "PKief.material-icon-theme",
+    "tomoki1207.pdf",
+    "jpoissonnier.vscode-styled-components"
+  ]
+}

@@ -21,8 +21,6 @@ const winMessage = (player) => {
     alert.style.color = "purple";
     alert.style.display = "block";
     alert.textContent = "Player X wins!";
-  } else if (player === "tie") {
-    tieMessage();
   }
 };
 
@@ -34,9 +32,22 @@ const tieMessage = () => {
   alert.textContent = "tie!";
 };
 
-winMessage("tie");
+winMessage(o);
+// winMessage(x);
+// winMessage("tie");
+// tieMessage();
+
+const reset = () => {
+  alert.style.display = "none";
+  container.style.backgroundColor = "#666";
+  allLi.forEach((li) => {
+    li.classList = "";
+    li.textContent = "+";
+  });
+};
 
 const checkWin = () => {};
 const checkDraw = () => {};
 const handleClick = (e) => {};
-const resetGame = () => {};
+
+resetBtn.addEventListener("click", reset);

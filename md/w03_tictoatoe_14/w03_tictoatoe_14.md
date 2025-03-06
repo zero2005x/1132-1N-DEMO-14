@@ -17,22 +17,22 @@
 ![](w03-p1-3.png)
 
 ```
-
+1fa2af5%09zero2005x%09Thu Mar 6 19:15:58 2025 +0800     W03-P1: Implement checkWin(player) using three different cases
 ```
 
-## W02-P2: show winning message and tie message
+## W03-P2: play TicTacToe successfully
 
-#### ==> play o wins
+#### => player o wins
 
-![](w03_p2_1.png)
+![](w03-p2-1.png)
 
-#### ==> play x wins
+#### => player x wins
 
-![](w03_p2_2.png)
+![](w03-p2-2.png)
 
-#### ==> tie
+#### => tie
 
-![](w03_p2_3.png)
+![](w03-p2-3.png)
 
 ```
 

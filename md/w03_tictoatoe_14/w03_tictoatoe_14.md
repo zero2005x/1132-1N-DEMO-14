@@ -35,23 +35,19 @@
 ![](w03-p2-3.png)
 
 ```
-
+a4f790e%09zero2005x%09Thu Mar 6 20:13:18 2025 +0800     W03-P2: play TicTacToe successfully
 ```
 
-### W02-P3 : implement reset button
+### W03-P3 : Temperature Convert from c to f
 
-#### ==> initially player o win
+![](w03-p3.png)
 
-![](w03_p3_1.png)
-
-#### ==> after reset button is pressed
-
-![](w03_p3_2.png)
+![](w03-p3-1.png)
 
 ```
 
 ```
 
-### W02-log: git logs for W02
+### W03-log: git logs for W03
 
 ![](w03_log.png)

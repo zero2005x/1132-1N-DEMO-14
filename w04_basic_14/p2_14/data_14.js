@@ -1,4 +1,5 @@
 export const sdata = [90, 100, 60, 40, 20, 80];
+export const sdata2 = [80, 90, 60, 40, 20, 70, 30, 100, 10, 50];
 
 export const students = [
   {

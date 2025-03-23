@@ -69,7 +69,7 @@ const computeStat = (s) => {
 
 const toSorted = students.toSorted(function (a, b) {
   // sorted
-  return b - a;
+  return b.score - a.score;
 });
 
 const outputStat = (s, isSort, result) => {

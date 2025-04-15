@@ -24,8 +24,23 @@ function showClassDemo(item) {
     case "w05_p2_14":
       p.innerHTML = `<iframe src='./demo/w05_basics_14/p2_14/p2_14.html' width="100%" height="100%" />`;
       break;
-    case "w06_p1_14":
-      p.innerHTML = `<iframe src='./demo/w07_basics_14/p1_14/p1_14.html' width="100%" height="100%" />`;
+    case "w06_p5_14":
+      p.innerHTML = `<iframe src='./demo/w06_prep_test_14/p5_14/src/p5_14.html' width="100%" height="100%" />`;
+      break;
+    case "w06_p6_14":
+      p.innerHTML = `<iframe src='./demo/w06_prep_test_14/p6_14/src/p6_14.html' width="100%" height="100%" />`;
+      break;
+    case "quiz1_14_p1":
+      p.innerHTML = `<iframe src='./exams/quiz1_14/p1_14/src/p1_14.html' width="100%" height="100%" />`;
+      break;
+    case "quiz1_14_p2":
+      p.innerHTML = `<iframe src='./exams/quiz1_14/p2_14/src/p2_14.html' width="100%" height="100%" />`;
+      break;
+    case "quiz1_14_p3":
+      p.innerHTML = `<iframe src='./exams/quiz1_14/p3_14/p3_14.html' width="100%" height="100%" />`;
+      break;
+    case "quiz1_14_p4":
+      p.innerHTML = `<iframe src='./exams/quiz1_14/p4_14/p4_14.html' width="100%" height="100%" />`;
       break;
   }
 }

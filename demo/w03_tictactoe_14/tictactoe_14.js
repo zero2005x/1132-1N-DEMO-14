@@ -5,19 +5,26 @@ let done = false;
 
 const container = document.querySelector(".container");
 const alertMessage = document.querySelector(".alertMessage");
-const allLi = document.querySelectorAll(".board li");
+const board = document.querySelector(".board");
 const resetBtn = document.querySelector(".reset");
 
-// console.log("allLi", allLi);
+// Add click event listeners to each cell
+function addAllClickListeners() {
+  const allLi = document.querySelectorAll(".board li");
+  allLi.forEach((item) => {
+    item.addEventListener("click", handleClick);
+  });
+}
 
-const checkWin = (player) => {
+// Check win condition for a player
+function checkWin(player) {
+  const allLi = document.querySelectorAll(".board li");
   let p = [];
   allLi.forEach((item) => {
     p.push(item.classList.contains(player));
   });
-  // console.log(`p`, p);
   const [p1, p2, p3, p4, p5, p6, p7, p8, p9] = p;
-  if (
+  return (
     (p1 && p2 && p3) ||
     (p4 && p5 && p6) ||
     (p7 && p8 && p9) ||
@@ -26,12 +33,11 @@ const checkWin = (player) => {
     (p3 && p6 && p9) ||
     (p1 && p5 && p9) ||
     (p3 && p5 && p7)
-  )
-    return true;
-  else return false;
-};
+  );
+}
 
-const winMessage = (player) => {
+// Show win message
+function winMessage(player) {
   if (player === o) {
     container.style.backgroundColor = "rgba(144, 238, 144, 0.5)";
     alertMessage.style.backgroundColor = "rgba(144, 238, 144, 0.5)";
@@ -45,71 +51,36 @@ const winMessage = (player) => {
     alertMessage.style.display = "block";
     alertMessage.textContent = "Player X wins!";
   }
-};
+}
 
-const tieMessage = () => {
+// Show tie message
+function tieMessage() {
   container.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
   alertMessage.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
   alertMessage.style.color = "yellow";
   alertMessage.style.display = "block";
   alertMessage.textContent = "tie!";
-};
+}
 
-// console.log(`checkWin("o")`, checkWin(o));
-// console.log(`checkWin("x")`, checkWin(x));
-// winMessage(o);
-// winMessage(x);
-// winMessage("tie");
-// tieMessage();
-
-const reset = () => {
+// Reset the game state and UI
+function reset() {
+  // Clear the board HTML and recreate cells
+  board.innerHTML = "";
+  for (let i = 0; i < 9; i++) {
+    const li = document.createElement("li");
+    li.textContent = "+";
+    board.appendChild(li);
+  }
   alertMessage.style.display = "none";
   container.style.backgroundColor = "#666";
-  allLi.forEach((li) => {
-    li.classList = "";
-    li.textContent = "+";
-  });
   turn = 0;
-};
+  done = false;
+  addAllClickListeners(); // Add listeners again
+}
 
-const go = (item, player, text) => {
-  item.textContent = text;
-  //item.classList = 'o';
-  item.classList.add(player, "disabled");
-  if (checkWin(player)) {
-    winMessage(player);
-    done = true;
-    turn = 0;
-  }
-  if (checkDraw()) {
-    tieMessage();
-    done = true;
-    turn = 0;
-  }
-};
-
-allLi.forEach((item) => {
-  item.addEventListener("click", () => {
-    if (item.classList.contains("disabled")) {
-      alert("Already filled");
-    } else {
-      if (turn % 2 === 0) {
-        go(item, "o", "0");
-      } else if (turn % 2 == 1) {
-        go(item, "x", "X");
-      }
-
-      if (!done && turn < 8) {
-        turn++;
-      } else if (!done && turn >= 8) {
-        tieMessage();
-        turn = 0;
-      }
-    }
-  });
-});
-
-const checkDraw = () => {
+// Check if the board is full and it's a draw
+function checkDraw() {
+  const allLi = document.querySelectorAll(".board li");
   let draw = true;
   allLi.forEach((item) => {
     if (!item.classList.contains(o) && !item.classList.contains(x)) {
@@ -117,8 +88,10 @@ const checkDraw = () => {
     }
   });
   return draw;
-};
-const handleClick = (e) => {
+}
+
+// Handle click event for each cell
+function handleClick(e) {
   if (done) return;
   if (e.target.classList.contains("disabled")) return;
   if (turn % 2 === 0) {
@@ -136,14 +109,18 @@ const handleClick = (e) => {
       done = true;
     }
   }
-  if (checkDraw()) {
+  if (checkDraw() && !done) {
     tieMessage();
     done = true;
   }
   turn++;
   e.target.classList.add("disabled");
-};
+}
 
+// Initial setup: add click listeners to all cells
+addAllClickListeners();
+
+// Reset button event
 resetBtn.addEventListener("click", reset);
 
 /*

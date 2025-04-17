@@ -87,8 +87,8 @@ quiz1 可以用你已經完成的檔案，如果用老師的檔案，回答本�
 
 ##### => Github & Vercel URL
 
-[Github demoURL]()
-[Vercel URL]()
+[Github demoURL](https://github.com/zero2005x/1132-1N-DEMO-14)
+[Vercel URL](https://1132-1-n-demo-14.vercel.app/)
 
 ![p5_1_14.png](p5_1_14.png)
 

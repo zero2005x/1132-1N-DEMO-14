@@ -1,8 +1,21 @@
-import { mid_products_14 } from "./products_data_14.js";
+import { products_14 } from "./products_data_14.js";
+import { _supabase } from "./clientSupabase_14.js";
 
 const productContainer = document.querySelector(".products-container");
 
-console.log("mid_products_14", mid_products_14);
+console.log("products_14", products_14);
+
+const fetchProducts = async () => {
+  try {
+    const { data, error } = await _supabase.from("product_14").select("*");
+    console.log("data", data);
+    if (error) throw error;
+    return data;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return [];
+  }
+};
 
 const displayProducts = (products) => {
   let productsContent = products
@@ -27,5 +40,19 @@ const displayProducts = (products) => {
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
-  displayProducts(mid_products_14);
+  fetchProducts()
+    .then((products) => {
+      if (products.length > 0) {
+        displayProducts(products);
+      } else {
+        console.log("No products found in the database.");
+        displayProducts(products_14);
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching products:", error);
+      // Fallback to local data if there's an error
+      displayProducts(products_14);
+    });
+  displayProducts(products_14);
 });

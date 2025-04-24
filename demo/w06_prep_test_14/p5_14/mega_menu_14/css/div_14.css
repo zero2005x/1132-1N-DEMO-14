@@ -1,4 +1,4 @@
-.div_container_xx {
+.div_container_14 {
   max-width: 1000px;
   min-width: 450px;
   background-color: #fff;
@@ -16,29 +16,29 @@
   font-weight: 600;
   font-size: 0.8rem;
 }
-.div_container_xx .logo {
+.div_container_14 .logo {
   background-color: #eababa;
   grid-area: logo;
 }
-.div_container_xx header {
+.div_container_14 header {
   background-color: bisque;
   grid-area: header;
 }
-.div_container_xx article {
+.div_container_14 article {
   background-color: #d18fdf;
   grid-area: article;
 }
-.div_container_xx article .nav {
+.div_container_14 article .nav {
   width: 80%;
   height: 90%;
   margin: 10px auto;
   background-color: #9cbaf3;
 }
-.div_container_xx aside {
+.div_container_14 aside {
   background-color: rgb(232, 235, 72);
   grid-area: aside;
 }
-.div_container_xx section {
+.div_container_14 section {
   width: 90%;
   height: 90%;
   display: flex;
@@ -46,7 +46,7 @@
   margin: 0.6rem auto;
   background-color: #a4caaf;
 }
-.div_container_xx .video-responsive {
+.div_container_14 .video-responsive {
   width: 90%;
   margin: 10px auto;
   overflow: hidden;
@@ -54,30 +54,30 @@
   position: relative;
   height: 0;
 }
-.div_container_xx .video-responsive iframe {
+.div_container_14 .video-responsive iframe {
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
   position: absolute;
 }
-.div_container_xx .picContainer {
+.div_container_14 .picContainer {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 0 auto;
 }
-.div_container_xx .picContainer .small_pic {
+.div_container_14 .picContainer .small_pic {
   width: 15%;
   margin: 10px;
   cursor: pointer;
 }
-.div_container_xx .picContainer .small_pic img {
+.div_container_14 .picContainer .small_pic img {
   width: 100%;
 }
-.div_container_xx footer {
+.div_container_14 footer {
   background-color: rgb(187, 127, 127);
   grid-area: footer;
 }
 
-/*# sourceMappingURL=div_xx.css.map */
+/*# sourceMappingURL=div_14.css.map */

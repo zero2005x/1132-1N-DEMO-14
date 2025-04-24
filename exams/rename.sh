@@ -5,7 +5,7 @@ RootDir="C:\Users\liangtinglin\Documents\淡江課程\javascript課程\1132-1N-D
 LogFile="$RootDir/rename_log_$(date +%Y%m%d_%H%M%S).txt" # 新增：日誌檔案路徑
 # 要尋找和替換的字串對 (將 "_14" 改為 "_14"，依此類推，第二行Lin改成你的完整姓名，第三行14改成你的完整學號)
 FindString_ReplacePairs=(
-    "_xx:_14"
+    "_14:_14"
     "Hsingtai Chung:Liang-Ting Lin"
     "htchung:LTLin"
     "123456789:913410014"

@@ -1,104 +1,36 @@
 import { students } from "./data_14.js";
 
-let stat = {
-  pass: 0,
-  fail: 0,
-  sum: 0,
-  average: 0,
-  highest: -100,
-  lowest: 200,
-};
-const result1 = document.querySelector(".result1");
-const result2 = document.querySelector(".result2");
+// Compute stats for an array of { score } objects
+function computeStats(items) {
+  const scores = items.map((s) => s.score);
+  const total = scores.length;
+  const sum = scores.reduce((acc, n) => acc + n, 0);
+  const pass = scores.filter((n) => n >= 60).length;
+  const fail = total - pass;
+  const max = Math.max(...scores);
+  const min = Math.min(...scores);
+  const avg = sum / total;
 
-const resetStat = () => {
-  stat.pass = 0;
-  stat.fail = 0;
-  stat.sum = 0;
-  stat.average = 0;
-  stat.highest = -100;
-  stat.lowest = 200;
-};
+  return { total, sum, pass, fail, max, min, average: avg };
+}
 
-const getHighest = (s) => {
-  let highest = -100;
-  s.forEach((item) => {
-    if (item.score > stat.highest) {
-      stat.highest = item.score;
-    }
-  });
-  return stat.highest;
-};
+// Render to a given container
+function render(container, items, title) {
+  const { total, pass, fail, max, min, average } = computeStats(items);
 
-const getLowest = (s) => {
-  let lowest = s[0];
-  s.forEach((item) => {
-    if (item.score < stat.lowest) {
-      stat.lowest = item.score;
-    }
-  });
-  return stat.lowest;
-};
-
-const getAverage = (s) => {
-  let total = 0;
-  s.forEach((score) => {
-    total += score;
-  });
-  return total / s.length;
-};
-
-const computeStat = (s) => {
-  resetStat();
-  s.forEach((item) => {
-    stat.sum += item.score;
-    if (item.score > stat.highest) {
-      stat.highest = item.score;
-    } else if (item.score < stat.lowest) {
-      stat.lowest = item.score;
-    }
-    if (item.score >= 60) {
-      stat.pass++;
-    } else {
-      stat.fail++;
-    }
-  });
-
-  stat.average = stat.sum / (s.length - 1);
-};
-
-const toSorted = students.toSorted(function (a, b) {
-  // sorted
-  return b.score - a.score;
-});
-
-const outputStat = (s, isSort, result) => {
-  const resultText = `<h3 class="my-4">Array Statistics for ${
-    result === "result1" ? "result1" : "result2"
-  }</h3>
-  <p>After sorting descending: </p>
-  <p> ${JSON.stringify(s)}</p>
-  <p>Total: ${s.length}</p>
-  <p>Pass: ${stat.pass}</p>
-  <p>Fail: ${stat.fail}</p>
-  <p>Height: ${isSort === true ? s[0].score : getHighest(s)}</p>
-  <p>Lowest: ${isSort === true ? s[s.length - 1].score : getLowest(s)}</p>
-  <p>Average: ${stat.average.toFixed(2)}</p>
+  document.querySelector(container).innerHTML = `
+    <h3 class="my-4">Array Statistics (${title})</h3>
+    <p>Data: ${JSON.stringify(items)}</p>
+    <p>Total:   ${total}</p>
+    <p>Pass:    ${pass}</p>
+    <p>Fail:    ${fail}</p>
+    <p>Highest: ${max}</p>
+    <p>Lowest:  ${min}</p>
+    <p>Average: ${average.toFixed(2)}</p>
   `;
+}
 
-  if (result === "result1") {
-    result1.innerHTML = resultText;
-  } else if (result === "result2") {
-    result2.innerHTML = resultText;
-  }
-};
+const sortedStudents = [...students].sort((a, b) => b.score - a.score);
 
-console.log("students", students);
-console.log("toSorted", toSorted);
-
-computeStat(students);
-
-outputStat(students, false, "result1");
-
-computeStat(toSorted);
-outputStat(toSorted, true, "result2");
+render(".result1", students, "Original Order");
+render(".result2", sortedStudents, "Descending Order");

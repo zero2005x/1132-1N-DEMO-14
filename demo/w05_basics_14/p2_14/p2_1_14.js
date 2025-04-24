@@ -1,100 +1,54 @@
 import { sdata, sdata2 } from "./data_14.js";
 
-const toSorted = sdata2.toSorted(function (a, b) {
-  // sorted
-  return b - a;
-});
-console.log("sdata", sdata);
-console.log("sdata2", sdata2);
-console.log("toSorted", toSorted);
+// 1. Sort a copy of sdata2 descending
+const sortedScores = [...sdata2].sort((a, b) => b - a);
 
-let stat = {
-  pass: 0,
-  fail: 0,
-  sum: 0,
-  average: 0,
-  highest: 0,
-};
+// 2. Compute all stats in one pass
+function computeStatistics(scores) {
+  const initial = {
+    sum: 0,
+    pass: 0,
+    fail: 0,
+    max: -Infinity,
+    min: Infinity,
+  };
 
-const result1 = document.querySelector(".result1");
-const result2 = document.querySelector(".result2");
+  const stats = scores.reduce((acc, score) => {
+    acc.sum += score;
+    acc.pass += score >= 60 ? 1 : 0;
+    acc.fail += score < 60 ? 1 : 0;
+    acc.max = Math.max(acc.max, score);
+    acc.min = Math.min(acc.min, score);
+    return acc;
+  }, initial);
 
-const computePass = (s) => {
-  let pass = 0;
-  s.forEach((score) => {
-    if (score >= 60) {
-      pass++;
-    }
-  });
-  return pass;
-};
+  return {
+    ...stats,
+    average: stats.sum / scores.length,
+  };
+}
 
-const computeFail = (s) => {
-  let fail = 0;
-  s.forEach((score) => {
-    if (score < 60) {
-      fail++;
-    }
-  });
-  return fail;
-};
+const stats = computeStatistics(sortedScores);
 
-const getHighest = (s) => {
-  let highest = s[0];
-  s.forEach((score) => {
-    if (score > highest) {
-      highest = score;
-    }
-  });
-  return highest;
-};
+// 3. Render HTML
+function renderStats(
+  containerSelector,
+  scores,
+  { sum, pass, fail, max, min, average }
+) {
+  document.querySelector(containerSelector).innerHTML = `
+    <h3 class="my-4">Array Statistics</h3>
+    <p>Scores: ${JSON.stringify(scores)}</p>
+    <p>Total:   ${scores.length}</p>
+    <p>Pass:    ${pass}</p>
+    <p>Fail:    ${fail}</p>
+    <p>Highest: ${max}</p>
+    <p>Lowest:  ${min}</p>
+    <p>Average: ${average.toFixed(1)}</p>
+  `;
+}
 
-const getLowest = (s) => {
-  let lowest = s[0];
-  s.forEach((score) => {
-    if (score < lowest) {
-      lowest = score;
-    }
-  });
-  return lowest;
-};
+renderStats(".result1", sortedScores, stats);
 
-const getAverage = (s) => {
-  let total = 0;
-  s.forEach((score) => {
-    total += score;
-  });
-  return total / s.length;
-};
-
-const outputStat1 = (s) => {
-  result1.innerHTML = `<h3 class="my-4">Array Statistics</h3>
-  <p> sdata to be sorted: </p>
-  <p> ${JSON.stringify(s)}</p>
-  <p>Total: ${s.length}</p>
-  <p>Pass: ${stat.pass}</p>
-  <p>Fail: ${stat.fail}</p>
-  <p>Height: ${stat.highest}</p>
-  <p>Lowerst: ${s[s.length - 1]}</p>
-  <p>Average: ${stat.average.toFixed(1)}</p>
-  <p> sdata length: ${s.length - 1} </p>`;
-};
-
-const computeStat = (s) => {
-  s.forEach((score) => {
-    stat.sum += score;
-    if (score > stat.highest) {
-      stat.highest = score;
-    } else if (score < stat.lowest) {
-      stat.lowest = score;
-    }
-    if (score >= 60) {
-      stat.pass++;
-    } else {
-      stat.fail++;
-    }
-  });
-  stat.average = stat.sum / s.length;
-};
-computeStat(toSorted);
-outputStat1(toSorted);
+// Optional: log for debugging
+console.log({ sdata, sdata2, sortedScores, stats });

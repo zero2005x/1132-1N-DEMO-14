@@ -36,6 +36,20 @@
 b7fcc3a%09zero2005x%09Thu May 1 20:45:30 2025 +0800     W11-P4: Use Async Await to W11-P3
 ```
 
+### W11-P5: Change Github repo name, and Vercel URL
+
+#### => Github
+
+![](w11-p5-1.png)
+
+#### => Vercel
+
+![](w11-p5-2.png)
+
+```
+b423b66%09zero2005x%09Thu May 1 20:54:01 2025 +0800     W11-P5: Change Github repo name, and Vercel URL
+```
+
 ### W11-log: git logs for W11
 
 ![](w11-log.png)

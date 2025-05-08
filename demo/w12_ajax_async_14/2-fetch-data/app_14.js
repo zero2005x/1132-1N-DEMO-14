@@ -1,22 +1,30 @@
-const xhr = new XMLHttpRequest();
-console.log("xhr0", xhr);
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.querySelector(".btn");
+  button.addEventListener("click", fetchData);
+});
+// Fetch data from a local file using XMLHttpRequest
 
-xhr.open("GET", "./api/sample.txt");
+const fetchData = async () => {
+  const xhr = new XMLHttpRequest();
+  console.log("xhr0", xhr);
 
-console.log("xhr", xhr);
+  xhr.open("GET", "./api/sample.txt");
 
-xhr.onreadystatechange = () => {
   console.log("xhr", xhr);
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    const text = document.createElement("p");
-    text.textContent = xhr.responseText;
-    document.body.appendChild(text);
-  } else {
-    console.log({
-      status: xhr.status,
-      text: xhr.statusText,
-    });
-  }
-};
 
-xhr.send();
+  xhr.onreadystatechange = () => {
+    console.log("xhr", xhr);
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      const text = document.createElement("p");
+      text.textContent = xhr.responseText;
+      document.body.appendChild(text);
+    } else {
+      console.log({
+        status: xhr.status,
+        text: xhr.statusText,
+      });
+    }
+  };
+
+  xhr.send();
+};

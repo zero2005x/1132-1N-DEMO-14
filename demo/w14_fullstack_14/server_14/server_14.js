@@ -1,4 +1,5 @@
 import express from "express";
+import apiProductRouter_14 from "./routers/api/apiProductRouter_14.js";
 
 const app_14 = express();
 
@@ -13,6 +14,17 @@ app_14.use("/product_14/static", (req, res, next) => {
     id: "913410014",
   });
 });
+
+app_14.use("api/product_14", (req, res, next) => {
+  console.log("api");
+  res.render("product_14/api", {
+    title: "Get Product - API",
+    name: "Liang-Ting Lin",
+    id: "913410014",
+  });
+});
+
+app_14.use("api/product_14", apiProductRouter_14);
 
 app_14.use("/", (req, res, next) => {
   res.render("index", {

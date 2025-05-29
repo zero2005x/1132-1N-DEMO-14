@@ -1,8 +1,14 @@
 import express from "express";
 import apiProductRouter_14 from "./routers/api/apiProductRouter_14.js";
+import cors from "cors";
+import logger from "morgan";
 
 const app_14 = express();
 
+// initial and call logger
+app_14.use(logger("dev"));
+
+app_14.use(cors());
 app_14.use(express.static("public"));
 app_14.set("view engine", "ejs");
 

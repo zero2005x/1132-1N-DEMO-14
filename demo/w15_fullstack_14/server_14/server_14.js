@@ -1,5 +1,6 @@
 import express from "express";
-import apiProductRouter_14 from "./routers/api/apiProductRouter_14.js";
+import apiProductRouter_14 from "./routers/api/ProductRouter_14.js";
+import ProductRouter_14 from "./routers/api/ProductRouter_14.js";
 import cors from "cors";
 import logger from "morgan";
 
@@ -12,6 +13,9 @@ app_14.use(cors());
 app_14.use(express.static("public"));
 app_14.set("view engine", "ejs");
 
+app_14.use("/api/product_14", apiProductRouter_14);
+app_14.use("/product_14", ProductRouter_14);
+
 app_14.use("/product_14/static", (req, res, next) => {
   console.log("static");
   res.render("product_14/static", {
@@ -21,7 +25,13 @@ app_14.use("/product_14/static", (req, res, next) => {
   });
 });
 
-app_14.use("/api/product_14", apiProductRouter_14);
+app_14.use("/blog_14/static", (req, res, next) => {
+  res.render("blog_14/static_14", {
+    title: "Get Blog - Static",
+    name: "Liang-Ting Lin",
+    id: "913410014",
+  });
+});
 
 app_14.use("/", (req, res, next) => {
   res.render("index", {

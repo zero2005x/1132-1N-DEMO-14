@@ -51,8 +51,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     })
     .catch((error) => {
       console.error("Error fetching products:", error);
-      // Fallback to local data if there's an error
       displayProducts(products_14);
     });
-  displayProducts(products_14);
 });

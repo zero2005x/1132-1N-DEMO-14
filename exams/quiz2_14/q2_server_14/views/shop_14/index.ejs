@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/shop/css/style.css" />
+    <title>Shop Demo</title>
+  </head>
+  <body>
+    <!-- 顯示傳入的變數 -->
+    <div style="text-align: center; margin-top: 2rem">
+      <h1><%= title %></h1>
+      <h3 style="margin-top: 0.5rem"><%= name %>, <%= id %></h3>
+    </div>
+
+    <!-- 商品展示區域 -->
+    <div class="shop-page">
+      <div class="collection-page">
+        <h1 class="title">Womens Collection</h1>
+        <div class="items">
+           <% data.forEach((item) => { %>
+          <div class="collection-item">
+            <img
+              class="image"
+              src="<%= item.local_img %>"
+            />
+            <div class="collection-footer">
+              <span class="name"><%= item.title %></span>
+              <span class="price">$<%= item.price %></span>
+            </div>
+            <button class="custom-button">Add to Card</button>
+          </div>
+           <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

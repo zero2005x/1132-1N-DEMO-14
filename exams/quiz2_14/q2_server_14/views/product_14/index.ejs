@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/product/style.css" />
+    <title>Product Demo</title>
+  </head>
+  <body>
+    <div style="text-align: center; margin-top: 2rem">
+      <h2><%= title %></h2>
+      <h4 style="margin-top: -1.5rem"><%= name %>, <%= id %></h4>
+    </div>
+    <div class="products-container">
+      <% data.forEach((item) => { %>
+      <div class="single-product">
+        <img
+          src="<%= item.img %>"
+          class="single-product-img img"
+          alt="<%= item.title %>"
+          bed=""
+        />
+        <footer>
+          <h3 class="name"><%= item.title %></h3>
+          <span class="price">$<%= item.price %></span>
+        </footer>
+      </div>
+      <% }) %>
+    </div>
+  </body>
+</html>

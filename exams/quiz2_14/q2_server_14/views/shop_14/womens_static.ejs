@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crown Clothing</title>
+    <!-- 正確連結CSS檔案 -->
+    <link rel="stylesheet" href="/shop/css/style.css" />
+  </head>
+  <body>
+    <!-- 顯示傳入的變數 -->
+    <div style="text-align: center; margin-top: 2rem">
+      <h1><%= title %></h1>
+      <h3 style="margin-top: 0.5rem"><%= name %>, <%= id %></h3>
+    </div>
+
+    <!-- 商品展示區域 -->
+    <div class="shop-page">
+      <div class="collection-page">
+        <h1 class="title">Womens Collection</h1>
+        <div class="items">
+          <div class="collection-item">
+            <img
+              class="image"
+              src="https://i.ibb.co/4W2DGKm/floral-blouse.png"
+            />
+            <div class="collection-footer">
+              <span class="name">Floral Blouse</span>
+              <span class="price">20</span>
+            </div>
+            <button class="custom-button">Add to Card</button>
+          </div>
+          <div class="collection-item">
+            <img
+              class="image"
+              src="https://i.ibb.co/KV18Ysr/floral-skirt.png"
+            />
+            <div class="collection-footer">
+              <span class="name">Floral Dress</span>
+              <span class="price">80</span>
+            </div>
+            <button class="custom-button">Add to Cart</button>
+          </div>
+          <div class="collection-item">
+            <img
+              class="image"
+              src="https://i.ibb.co/N3BN1bh/red-polka-dot-dress.png"
+            />
+            <div class="collection-footer">
+              <span class="name">Red Dots Dress</span>
+              <span class="price">80</span>
+            </div>
+            <button class="custom-button">Add to Cart</button>
+          </div>
+          <div class="collection-item">
+            <img
+              class="image"
+              src="https://i.ibb.co/KmSkMbH/striped-sweater.png"
+            />
+            <div class="collection-footer">
+              <span class="name">Striped Sweater</span>
+              <span class="price">45</span>
+            </div>
+            <button class="custom-button">Add to Cart</button>
+          </div>
+          <div class="collection-item">
+            <img
+              class="image"
+              src="https://i.ibb.co/v1cvwNf/yellow-track-suit.png"
+            />
+            <div class="collection-footer">
+              <span class="name">Yellow Track Suite</span>
+              <span class="price">135</span>
+            </div>
+            <button class="custom-button">Add to Cart</button>
+          </div>
+          <div class="collection-item">
+            <img class="image" src="https://i.ibb.co/qBcrsJg/white-vest.png" />
+            <div class="collection-footer">
+              <span class="name">White Blouse</span>
+              <span class="price">20</span>
+            </div>
+            <button class="custom-button">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

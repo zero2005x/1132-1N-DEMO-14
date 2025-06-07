@@ -1,0 +1,4 @@
+CREATE DATABASE js_quiz2_14;
+
+DROP TABLE shop_14;
+TRUNCATE TABLE shop_14;

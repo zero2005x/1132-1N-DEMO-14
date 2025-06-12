@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/menu/styles.css" />
+  </head>
+  <body>
+    <section class="menu">
+      <!-- title -->
+      <div class="title">
+        <h2><%= title %></h2>
+        <h3 style="text-align: center"><%= name %>, <%= id %></h3>
+        <div class="underline"></div>
+      </div>
+      <!-- filter buttons -->
+      <div class="btn-container">
+        <button type="button" class="filter-btn" data-id="all">all</button
+        ><button type="button" class="filter-btn" data-id="breakfast">
+          breakfast</button
+        ><button type="button" class="filter-btn" data-id="lunch">lunch</button
+        ><button type="button" class="filter-btn" data-id="shakes">
+          shakes</button
+        ><button type="button" class="filter-btn" data-id="dinner">
+          dinner
+        </button>
+      </div>
+      <!-- menu items -->
+
+      <div class="section-center">
+        <% menuItems.forEach(function(item, index) { %>
+        <article class="menu-item">
+          <img
+            src="<%= item.local_img %>"
+            alt="<%= item.title %>"
+            class="photo"
+          />
+          <div class="item-info">
+            <header>
+              <h4><%= id[index] %> - <%= item.title %></h4>
+              <h4 class="price">$<%= item.price %></h4>
+            </header>
+            <p class="item-text"><%= item.description %></p>
+          </div>
+        </article>
+        <% }); %>
+      </div>
+    </section>
+  </body>
+</html>
